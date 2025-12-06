@@ -8,7 +8,7 @@
 
 | Phase | 상태 | 진행률 |
 |-------|------|--------|
-| Phase 1 | 🔵 진행 중 | 0% |
+| Phase 1 | 🔵 진행 중 | 33% |
 | Phase 2 | ⚪ 대기 | 0% |
 | Phase 3 | ⚪ 대기 | 0% |
 | Phase 4 | ⚪ 대기 | 0% |
@@ -18,13 +18,13 @@
 
 ## Phase 1: 프로젝트 기반 구축 (Week 1-2)
 
-### Sprint 1.1: 인프라 및 프로젝트 구조
+### Sprint 1.1: 인프라 및 프로젝트 구조 ✅
 
-- [ ] Docker Compose 환경 구성 (PostgreSQL, Redis)
-- [ ] 멀티 모듈 구조 정리 (common, api, batch)
-- [ ] 공통 설정 (application.yml profiles: local, test)
-- [ ] 공통 예외 처리 및 응답 포맷 정의
-- [ ] Flyway 마이그레이션 설정
+- [x] Docker Compose 환경 구성 (PostgreSQL, Redis)
+- [x] 멀티 모듈 구조 정리 (common, api, batch)
+- [x] 공통 설정 (application.yml profiles: local, test, docker)
+- [x] 공통 예외 처리 및 응답 포맷 정의
+- [x] Flyway 마이그레이션 설정
 
 **산출물:** Docker 환경에서 Spring Boot 앱 정상 구동
 

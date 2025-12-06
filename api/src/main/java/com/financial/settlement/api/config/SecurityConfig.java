@@ -1,4 +1,4 @@
-package com.financial.settlement.config;
+package com.financial.settlement.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,20 +17,21 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)
-            .headers(headers -> headers
-                .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
+            .sessionManagement(session ->
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
-            .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .headers(headers ->
+                headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin) // H2 Console
             )
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/api/health",
-                    "/actuator/**",
-                    "/swagger-ui/**",
-                    "/v3/api-docs/**",
-                    "/h2-console/**"
-                ).permitAll()
+                // Swagger UI
+                .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
+                // Actuator
+                .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+                // H2 Console (개발용)
+                .requestMatchers("/h2-console/**").permitAll()
+                // API
+                .requestMatchers("/api/**").permitAll() // TODO: JWT 인증 추가 후 변경
                 .anyRequest().authenticated()
             );
 

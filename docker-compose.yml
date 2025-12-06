@@ -1,0 +1,69 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: payflow-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME:-payflow}
+      POSTGRES_USER: ${DB_USER:-payflow}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-payflow123}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payflow -d payflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - payflow-network
+
+  # Redis (분산 락, 캐싱, 멱등성 키)
+  redis:
+    image: redis:7-alpine
+    container_name: payflow-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - payflow-network
+
+  # Spring Boot Application (optional - for full stack testing)
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: payflow-api
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     SPRING_PROFILES_ACTIVE: docker
+  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/payflow
+  #     SPRING_DATASOURCE_USERNAME: payflow
+  #     SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-payflow123}
+  #     SPRING_REDIS_HOST: redis
+  #     SPRING_REDIS_PORT: 6379
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   networks:
+  #     - payflow-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  payflow-network:
+    driver: bridge
