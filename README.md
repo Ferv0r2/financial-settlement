@@ -5,6 +5,7 @@
 ## Tech Stack
 
 ### Backend
+
 - Java 17 LTS
 - Spring Boot 3.2.5
 - Spring Security
@@ -13,6 +14,7 @@
 - Gradle (Kotlin DSL)
 
 ### Frontend
+
 - React (TBD)
 
 ## Project Structure
@@ -28,6 +30,7 @@ financial-settlement/
 ## Getting Started
 
 ### Prerequisites
+
 - JDK 17+
 - Gradle 8.x (또는 Gradle Wrapper 사용)
 
@@ -38,9 +41,9 @@ cd backend
 ../gradlew bootRun
 ```
 
-API 서버: http://localhost:8080
-Swagger UI: http://localhost:8080/swagger-ui.html
-H2 Console: http://localhost:8080/h2-console
+- API 서버: http://localhost:8080
+- Swagger UI: http://localhost:8080/swagger-ui.html
+- H2 Console: http://localhost:8080/h2-console
 
 ### Build
 
@@ -50,9 +53,9 @@ H2 Console: http://localhost:8080/h2-console
 
 ## API Endpoints
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | /api/health | 서버 상태 확인 |
+| Method | Path        | Description    |
+| ------ | ----------- | -------------- |
+| GET    | /api/health | 서버 상태 확인 |
 
 ## Profiles
 
