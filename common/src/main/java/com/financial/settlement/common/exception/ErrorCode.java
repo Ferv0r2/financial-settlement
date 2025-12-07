@@ -23,6 +23,8 @@ public enum ErrorCode {
     PAYMENT_ALREADY_CANCELLED("P004", "이미 취소된 결제입니다.", HttpStatus.BAD_REQUEST),
     PAYMENT_CANNOT_CANCEL("P005", "취소할 수 없는 상태입니다.", HttpStatus.BAD_REQUEST),
     PAYMENT_AMOUNT_MISMATCH("P006", "결제 금액이 일치하지 않습니다.", HttpStatus.BAD_REQUEST),
+    PAYMENT_CANCEL_NOT_ALLOWED("P007", "취소가 허용되지 않는 상태입니다.", HttpStatus.BAD_REQUEST),
+    PAYMENT_REFUND_NOT_ALLOWED("P008", "환불이 허용되지 않는 상태입니다.", HttpStatus.BAD_REQUEST),
 
     // Idempotency Errors (I)
     IDEMPOTENCY_KEY_REQUIRED("I001", "Idempotency-Key 헤더가 필요합니다.", HttpStatus.BAD_REQUEST),

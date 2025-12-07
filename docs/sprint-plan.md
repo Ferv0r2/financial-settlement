@@ -8,7 +8,7 @@
 
 | Phase | 상태 | 진행률 |
 |-------|------|--------|
-| Phase 1 | 🔵 진행 중 | 33% |
+| Phase 1 | 🔵 진행 중 | 67% |
 | Phase 2 | ⚪ 대기 | 0% |
 | Phase 3 | ⚪ 대기 | 0% |
 | Phase 4 | ⚪ 대기 | 0% |
@@ -30,15 +30,15 @@
 
 ---
 
-### Sprint 1.2: 도메인 모델 및 결제 기본 기능
+### Sprint 1.2: 도메인 모델 및 결제 기본 기능 ✅
 
-- [ ] Payment 엔티티 + Repository
-- [ ] PaymentStatus Enum 및 상태 머신 구현
-- [ ] 상태 전이 검증 로직 (불가능한 전이 차단)
-- [ ] Merchant 엔티티 (기본)
-- [ ] AuditLog 엔티티 + 자동 기록 (JPA EventListener)
+- [x] Payment 엔티티 + Repository
+- [x] PaymentStatus Enum 및 상태 머신 구현
+- [x] 상태 전이 검증 로직 (불가능한 전이 차단)
+- [x] Merchant 엔티티 (기본)
+- [x] AuditLog 엔티티 + 자동 기록 (JPA EventListener)
 
-**산출물:** Payment 상태 머신 단위 테스트 통과
+**산출물:** Payment 상태 머신 단위 테스트 통과 ✅
 
 ---
 
