@@ -36,10 +36,10 @@ public class AuditLog {
     @Column(name = "new_state", length = 20)
     private String newState;
 
-    @Column(name = "previous_data", columnDefinition = "jsonb")
+    @Column(name = "previous_data", columnDefinition = "TEXT")
     private String previousData;
 
-    @Column(name = "new_data", columnDefinition = "jsonb")
+    @Column(name = "new_data", columnDefinition = "TEXT")
     private String newData;
 
     @Column(name = "reason", columnDefinition = "TEXT")

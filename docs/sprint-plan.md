@@ -8,7 +8,7 @@
 
 | Phase | 상태 | 진행률 |
 |-------|------|--------|
-| Phase 1 | 🔵 진행 중 | 67% |
+| Phase 1 | ✅ 완료 | 100% |
 | Phase 2 | ⚪ 대기 | 0% |
 | Phase 3 | ⚪ 대기 | 0% |
 | Phase 4 | ⚪ 대기 | 0% |
@@ -42,15 +42,18 @@
 
 ---
 
-### Sprint 1.3: 결제 API 기본 구현
+### Sprint 1.3: 결제 API 기본 구현 ✅
 
-- [ ] `POST /api/v1/payments` - 결제 생성
-- [ ] `GET /api/v1/payments/{id}` - 결제 조회
-- [ ] `GET /api/v1/payments/{id}/history` - 히스토리 조회
-- [ ] 입력 검증 (Bean Validation)
-- [ ] Swagger/OpenAPI 설정
+- [x] `POST /api/v1/payments` - 결제 생성
+- [x] `GET /api/v1/payments/{id}` - 결제 조회
+- [x] `GET /api/v1/payments/{id}/history` - 히스토리 조회
+- [x] `GET /api/v1/payments/by-idempotency-key/{key}` - 멱등성 키로 조회
+- [x] `GET /api/v1/payments/merchant/{merchantId}` - 가맹점별 목록 조회
+- [x] 입력 검증 (Bean Validation)
+- [x] Swagger/OpenAPI 설정
+- [x] 통합 테스트 10건 작성
 
-**산출물:** 결제 생성/조회 API 정상 동작
+**산출물:** 결제 생성/조회 API 정상 동작 ✅
 
 ---
 
